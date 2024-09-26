@@ -20,7 +20,7 @@ There are apps available for each step in my GitHub repository - the naming show
 
 This is the app for the (final) seventh step 7: **find and print out the "Application Primary Account Number" ("PAN") = card number** in **TalkToYourCreditCardPart7**.
 
-The app is tested on real Android devices running Android versions 5.0.1, 8.0 and 13.
+The app is tested on real Android devices running Android versions 5.0.1, 8.0, 9 and 13.
 
 **A compiled version of the app is available in the "debug-release" folder of this repository**: ![app-debug.apk](debug-release/app-debug.apk?raw=true)
 

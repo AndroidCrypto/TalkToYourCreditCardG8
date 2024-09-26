@@ -209,9 +209,23 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
                                  * Mastercard has NO PDOL, Visa gives PDOL in tag 9F38
                                  * next step: search for tag 9F38 Processing Options Data Object List (PDOL)
                                  */
-                                BerTlvs tlvsAid = parser.parse(selectAidResponseOk);
-                                BerTlv tag9f38 = tlvsAid.find(new BerTag(0x9F, 0x38));
-                                writeToUiAppend(etData, "04 search for tag 0x9F38 in the selectAid response completed");
+
+                                /*
+                                Caught a RuntimeException from the binder stub implementation.
+                                java.lang.IllegalStateException: At position 1 the len is more then 3 [36]
+	                            at com.payneteasy.tlv.BerTlvParser.getDataLength(BerTlvParser.java:205)
+	                            That can happe when invalid are used to get parsed.
+                                 */
+                                System.out.println("selectAidResponseOk: " + bytesToHexNpe(selectAidResponseOk));
+                                BerTlv tag9f38;
+                                try {
+                                    BerTlvs tlvsAid = parser.parse(selectAidResponseOk);
+                                    tag9f38 = tlvsAid.find(new BerTag(0x9F, 0x38));
+                                    writeToUiAppend(etData, "04 search for tag 0x9F38 in the selectAid response completed");
+                                } catch (IllegalStateException e) {
+                                    tag9f38 = null;
+                                    Log.e(TAG, "Parsing invalid data: " + e.getMessage());
+                                }
                                 byte[] gpoRequestCommand;
 
                                 // comment this out for regular workflow
