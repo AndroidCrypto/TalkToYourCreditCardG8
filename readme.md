@@ -48,6 +48,8 @@ readRecord SFI 20 file 2 command length: 5 data: 00b2022400
 ...
 ```
 
+## Screenshot of the app
+
 ![step 2: after reading a Credit Card](docs/app07a.png?raw=true) ![step 2: after reading a Credit Card](docs/app07b.png?raw=true)
 
 In AndroidManifest.xml grant these permissions:
