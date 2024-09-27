@@ -33,6 +33,11 @@ These are the steps to read a payment card, it is a kind of "question & answer" 
 - read all files given in the AFL list and find the file where there are the elements "Application Primary Account Number" and "Application Expiration Date"
 - print out the "Application Primary Account Number" ("PAN") = card number and "Application Expiration Date" = expiration date of the card.
 
+## Version Udate September 2024
+
+This is the updated version of the "Talk to your Credit Card app". The main change is in the new 
+Gradle Environment version 8.7.   
+
 ![step 2: after reading a Credit Card](docs/app07a.png?raw=true) ![step 2: after reading a Credit Card](docs/app07b.png?raw=true)
 
 In AndroidManifest.xml grant these permissions:

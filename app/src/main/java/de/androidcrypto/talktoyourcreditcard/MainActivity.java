@@ -452,7 +452,8 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
                                         byte[] cmd = hexToBytes("00B2000400");
                                         cmd[2] = (byte) (iRecord & 0x0FF);
                                         cmd[3] |= (byte) (sfiNew & 0x0FF);
-                                        writeToUiAppend("readRecord  command length: " + cmd.length + " data: " + bytesToHexNpe(cmd));
+                                        //writeToUiAppend("readRecord  command length: " + cmd.length + " data: " + bytesToHexNpe(cmd));
+                                        writeToUiAppend("readRecord SFI " + byteToHex(sfiOrg) + " file " + (int) recL + " command length: " + cmd.length + " data: " + bytesToHexNpe(cmd));
                                         readRecordResponse = nfc.transceive(cmd);
                                         byte[] readRecordResponseTag5a = null;
                                         byte[] readRecordResponseTag5f24 = null;
