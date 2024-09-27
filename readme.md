@@ -33,10 +33,20 @@ These are the steps to read a payment card, it is a kind of "question & answer" 
 - read all files given in the AFL list and find the file where there are the elements "Application Primary Account Number" and "Application Expiration Date"
 - print out the "Application Primary Account Number" ("PAN") = card number and "Application Expiration Date" = expiration date of the card.
 
-## Version Udate September 2024
+## Version Update September 2024
 
 This is the updated version of the "Talk to your Credit Card app". The main change is in the new 
-Gradle Environment version 8.7.   
+Gradle Environment version 8.7. The target and compiled SDK is still SDK 33 as I can't test on SDK 34 
+devices.
+
+A minor change is feature update in the "Read Files" part. The log file now prints out the SFI and 
+file number of the file - that makes it easier for everyone that need the file data for e.g. emulating
+a Credit Card:
+
+```none
+readRecord SFI 20 file 2 command length: 5 data: 00b2022400
+...
+```
 
 ![step 2: after reading a Credit Card](docs/app07a.png?raw=true) ![step 2: after reading a Credit Card](docs/app07b.png?raw=true)
 
